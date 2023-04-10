@@ -4,13 +4,18 @@ import { styles } from "./LoginPage.styles";
 import { useNavigation } from "@react-navigation/native";
 import Constants from "expo-constants";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { REGISTRATION_PATH } from "../../constants";
+import { RootStackParamList } from "../../App.types";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 export function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { appName } = Constants.expoConfig.extra;
+  console.log(`welcome to ${appName}`);
 
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   React.useEffect(() => {
     navigation.setOptions({
@@ -45,7 +50,13 @@ export function LoginPage() {
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
       <Text style={styles.signUpText}>
-        Don’t have an account? <Text style={styles.signUpLink}>Sign up</Text>
+        Don’t have an account?{" "}
+        <Text
+          style={styles.signUpLink}
+          onPress={() => navigation.navigate(REGISTRATION_PATH)}
+        >
+          Sign up
+        </Text>
       </Text>
       <TouchableOpacity>
         <Text style={styles.forgotPasswordLink}>Forgot password?</Text>
