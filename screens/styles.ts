@@ -1,16 +1,17 @@
 import { StyleSheet } from "react-native";
+import { padding } from "../theme/utils";
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#d4f1f9",
-    paddingHorizontal: 20,
+    backgroundColor: "#fff",
+    paddingHorizontal: 30,
+    ...padding(40, 20),
   },
   header: {
-    fontSize: 50,
-    textAlign: "center",
+    fontSize: 28,
+    fontWeight: "bold",
+    marginBottom: 30,
   },
   input: {
     height: 40,
@@ -39,14 +40,12 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: "center",
   },
-  signUpLink: {
-    color: "blue",
-    textDecorationLine: "underline",
-  },
-  forgotPasswordLink: {
-    color: "blue",
-    textDecorationLine: "underline",
-    alignSelf: "flex-end",
+  Link: {
+    alignSelf: "center",
+    marginBottom: 30,
+    color: "#007aff",
+    fontWeight: "bold",
+    fontSize: 16,
   },
   separator: {
     flexDirection: "row",
@@ -64,7 +63,7 @@ export const styles = StyleSheet.create({
     color: "gray",
   },
   socialButton: {
-    backgroundColor: "white",
+    backgroundColor: "#ccc",
     borderRadius: 5,
     borderColor: "gray",
     borderWidth: 1,
@@ -74,5 +73,25 @@ export const styles = StyleSheet.create({
   },
   socialButtonText: {
     textAlign: "center",
+    color: "#000",
+    fontSize: 14,
+  },
+  divider: {
+    borderWidth: 0.5,
+    borderColor: "#ccc",
+    marginVertical: 20,
+  },
+  text: {
+    textAlign: "center",
+    marginBottom: 10,
+  },
+  link: {
+    alignSelf: "center",
+    marginBottom: 30,
+  },
+  linkText: {
+    color: "#007aff",
+    fontWeight: "bold",
+    fontSize: 16,
   },
 });

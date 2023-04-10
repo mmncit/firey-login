@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Text, View, TextInput, TouchableOpacity } from "react-native";
-import { styles } from "./LoginPage.styles";
+import { styles } from "../styles";
 import { useNavigation } from "@react-navigation/native";
 import Constants from "expo-constants";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -29,6 +29,7 @@ export function LoginPage() {
 
   return (
     <SafeAreaView style={styles.container}>
+      <Text style={styles.header}>{appName}</Text>
       <TextInput
         style={styles.input}
         onChangeText={setEmail}
@@ -52,14 +53,14 @@ export function LoginPage() {
       <Text style={styles.signUpText}>
         Don’t have an account?{" "}
         <Text
-          style={styles.signUpLink}
+          style={styles.Link}
           onPress={() => navigation.navigate(REGISTRATION_PATH)}
         >
           Sign up
         </Text>
       </Text>
       <TouchableOpacity>
-        <Text style={styles.forgotPasswordLink}>Forgot password?</Text>
+        <Text style={styles.Link}>Forgot password?</Text>
       </TouchableOpacity>
       <View style={styles.separator}>
         <View style={styles.separatorLine}></View>
