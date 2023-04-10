@@ -1,1 +1,1 @@
-export const HOME_PATH = 'Home';
+export const HOME_PATH = "Home";

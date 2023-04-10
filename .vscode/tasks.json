@@ -1,0 +1,31 @@
+{
+  "version": "2.0.0",
+
+  "tasks": [
+    {
+      "label": "New react folder and files",
+
+      "command": "mkdir ${input:dirName} && touch '${input:dirName}/index.ts' '${input:dirName}/${input:dirName}.tsx' '${input:dirName}/${input:dirName}.styles.ts' '${input:dirName}/${input:dirName}.types.ts'",
+
+      "type": "shell",
+      "problemMatcher": [],
+      "presentation": {
+        "echo": false,
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": true
+      }
+    }
+  ],
+
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "dirName",
+      "description": "Complete my folder name",
+      "default": "tsx folder to create"
+    }
+  ]
+}
