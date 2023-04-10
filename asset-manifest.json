@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.js": "/firey-login/static/js/main.a41bac1b.js",
+    "static/js/558.d1e4db7c.js": "/firey-login/static/js/558.d1e4db7c.js",
+    "index.html": "/firey-login/index.html",
+    "serve.json": "/firey-login/serve.json",
+    "manifest.json": "/firey-login/manifest.json",
+    "main.a41bac1b.js.map": "/firey-login/static/js/main.a41bac1b.js.map",
+    "558.d1e4db7c.js.map": "/firey-login/static/js/558.d1e4db7c.js.map"
+  },
+  "entrypoints": [
+    "static/js/558.d1e4db7c.js",
+    "static/js/main.a41bac1b.js"
+  ]
+}
