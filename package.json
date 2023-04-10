@@ -1,7 +1,7 @@
 {
-  "name": "fire-login",
+  "name": "firey-login",
   "version": "1.0.0",
-  "homepage": "https://mmncit.github.io/fire-login",
+  "homepage": "https://mmncit.github.io/firey-login",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "init": "git init",
