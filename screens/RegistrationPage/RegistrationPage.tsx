@@ -5,14 +5,18 @@ import {
   TouchableOpacity,
   SafeAreaView,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { styles } from "../styles";
 import { RootStackParamList } from "../../App.types";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useNavigation } from "@react-navigation/native";
 import { HOME_PATH } from "../../constants";
+import { PasswordField } from "../../components";
 
 export function RegistrationPage() {
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
@@ -27,20 +31,16 @@ export function RegistrationPage() {
       <Text style={styles.header}>Create Account</Text>
       <TextInput
         style={styles.input}
-        placeholder="Full Name"
+        placeholder="Email address"
         placeholderTextColor="gray"
       />
-      <TextInput
-        style={styles.input}
-        placeholder="Email Address"
-        placeholderTextColor="gray"
+      <PasswordField onChangePassword={setPassword} password={password} />
+      <PasswordField
+        onChangePassword={setConfirmPassword}
+        password={confirmPassword}
+        placeholder="Confirm Password"
       />
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        placeholderTextColor="gray"
-        secureTextEntry={true}
-      />
+
       <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Create Account</Text>
       </TouchableOpacity>

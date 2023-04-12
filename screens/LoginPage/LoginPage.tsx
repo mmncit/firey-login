@@ -7,12 +7,15 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { REGISTRATION_PATH } from "../../constants";
 import { RootStackParamList } from "../../App.types";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { PasswordField } from "../../components";
 
 export function LoginPage() {
+  const { appName } = Constants.expoConfig.extra;
+
+  console.log(`welcome to ${appName}`);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { appName } = Constants.expoConfig.extra;
-  console.log(`welcome to ${appName}`);
 
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
@@ -39,14 +42,7 @@ export function LoginPage() {
         keyboardType="email-address"
         autoCapitalize="none"
       />
-      <TextInput
-        style={styles.input}
-        onChangeText={setPassword}
-        value={password}
-        placeholder="Password"
-        placeholderTextColor="gray"
-        secureTextEntry
-      />
+      <PasswordField onChangePassword={setPassword} password={password} />
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
