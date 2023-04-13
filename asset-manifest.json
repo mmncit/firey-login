@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.js": "/firey-login/static/js/main.ce6cdee4.js",
-    "static/js/474.924b36de.js": "/firey-login/static/js/474.924b36de.js",
+    "main.js": "/firey-login/static/js/main.0aabaf42.js",
+    "static/js/953.740013c8.js": "/firey-login/static/js/953.740013c8.js",
     "static/media/MaterialIcons.ttf": "/firey-login/static/media/MaterialIcons.120b4c7bbd155bd0a04d.ttf",
     "index.html": "/firey-login/index.html",
     "serve.json": "/firey-login/serve.json",
     "manifest.json": "/firey-login/manifest.json",
-    "main.ce6cdee4.js.map": "/firey-login/static/js/main.ce6cdee4.js.map",
-    "474.924b36de.js.map": "/firey-login/static/js/474.924b36de.js.map"
+    "main.0aabaf42.js.map": "/firey-login/static/js/main.0aabaf42.js.map",
+    "953.740013c8.js.map": "/firey-login/static/js/953.740013c8.js.map"
   },
   "entrypoints": [
-    "static/js/474.924b36de.js",
-    "static/js/main.ce6cdee4.js"
+    "static/js/953.740013c8.js",
+    "static/js/main.0aabaf42.js"
   ]
 }
