@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import { padding } from "../theme/utils";
+import { minWidth } from "react-native-stylex/media-query";
 
 export const styles = StyleSheet.create({
   container: {
@@ -7,6 +8,10 @@ export const styles = StyleSheet.create({
     backgroundColor: "#fff",
     paddingHorizontal: 30,
     ...padding(40, 20),
+    ...minWidth(500, {
+      // if window width MORE then 500 apply style
+      alignItems: "center",
+    }),
   },
   header: {
     fontSize: 28,
