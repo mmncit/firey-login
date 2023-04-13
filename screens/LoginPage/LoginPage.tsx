@@ -4,7 +4,7 @@ import { styles } from "../styles";
 import { useNavigation } from "@react-navigation/native";
 import Constants from "expo-constants";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { REGISTRATION_PATH } from "../../constants";
+import { FORGOT_PASSWORD_PATH, REGISTRATION_PATH } from "../../constants";
 import { RootStackParamList } from "../../App.types";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { PasswordField } from "../../components";
@@ -56,7 +56,12 @@ export function LoginPage() {
         </Text>
       </Text>
       <TouchableOpacity>
-        <Text style={styles.Link}>Forgot password?</Text>
+        <Text
+          style={styles.Link}
+          onPress={() => navigation.navigate(FORGOT_PASSWORD_PATH)}
+        >
+          Forgot password?
+        </Text>
       </TouchableOpacity>
       <View style={styles.separator}>
         <View style={styles.separatorLine}></View>
