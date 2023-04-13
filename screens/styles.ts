@@ -99,4 +99,22 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 16,
   },
+  subheader: {
+    fontSize: 16,
+    marginBottom: 40,
+  },
+  codeContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: 300,
+  },
+  codeInput: {
+    height: 50,
+    width: 50,
+    borderWidth: 1,
+    borderRadius: 5,
+    textAlign: "center",
+    fontSize: 20,
+    fontWeight: "bold",
+  },
 });

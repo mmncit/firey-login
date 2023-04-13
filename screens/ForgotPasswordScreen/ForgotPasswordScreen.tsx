@@ -10,7 +10,7 @@ import { styles } from "../styles";
 import { useNavigation } from "@react-navigation/native";
 import { RootStackParamList } from "../../App.types";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { HOME_PATH } from "../../constants";
+import { HOME_PATH, VALIDATE_CODE_PATH } from "../../constants";
 
 export function ForgotPasswordScreen() {
   const [email, setEmail] = useState("");
@@ -26,6 +26,7 @@ export function ForgotPasswordScreen() {
 
   const handleResetPassword = () => {
     // code to send password reset email
+    navigation.navigate(VALIDATE_CODE_PATH);
   };
 
   return (
