@@ -13,10 +13,10 @@ jobs:
       - name: Setup NODE
         uses: actions/setup-node@v2
         with:
-          node-version: '17'
+          node-version: "17"
       - run: node --version
         env:
-          NODE_OPTIONS: '--openssl-legacy-provider'
+          NODE_OPTIONS: "--openssl-legacy-provider"
 
       - name: Build web
         run: |
@@ -24,6 +24,12 @@ jobs:
           npm run predeploy
         env:
           APP_NAME: ${{ vars.APP_NAME }}
+          API_KEY: ${{ secrets.API_KEY }}
+          AUTH_DOMAIN: ${{ secrets.AUTH_DOMAIN }}
+          PROJECT_ID: ${{ secrets.PROJECT_ID }}
+          STORAGE_BUCKET: ${{ secrets.STORAGE_BUCKET }}
+          MESSAGING_SENDER_ID: ${{ secrets.MESSAGING_SENDER_ID }}
+          APP_ID: ${{ secrets.APP_ID }}
 
       - name: Build and deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.5

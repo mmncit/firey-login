@@ -13,25 +13,28 @@ import {
   RegistrationPage,
   ValidateCodeScreen,
 } from "./screens";
+import { AuthProvider } from "./contexts/AuthContext";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name={HOME_PATH} component={LoginPage} />
-        <Stack.Screen name={REGISTRATION_PATH} component={RegistrationPage} />
-        <Stack.Screen
-          name={FORGOT_PASSWORD_PATH}
-          component={ForgotPasswordScreen}
-        />
-        <Stack.Screen
-          name={VALIDATE_CODE_PATH}
-          component={ValidateCodeScreen}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <AuthProvider>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name={HOME_PATH} component={LoginPage} />
+          <Stack.Screen name={REGISTRATION_PATH} component={RegistrationPage} />
+          <Stack.Screen
+            name={FORGOT_PASSWORD_PATH}
+            component={ForgotPasswordScreen}
+          />
+          <Stack.Screen
+            name={VALIDATE_CODE_PATH}
+            component={ValidateCodeScreen}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </AuthProvider>
   );
 }
 

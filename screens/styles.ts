@@ -117,4 +117,12 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
   },
+  errorText: {
+    color: "red",
+    fontSize: 14,
+    marginTop: 10,
+  },
+  disabledButton: {
+    backgroundColor: "gray",
+  },
 });
