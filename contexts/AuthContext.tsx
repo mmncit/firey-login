@@ -1,5 +1,5 @@
 import * as React from "react";
-import { AuthData, HasChildrenProps } from "./AuthContext.types";
+import { AuthData, AuthError, HasChildrenProps } from "./AuthContext.types";
 import auth from "./firebase";
 import {
   createUserWithEmailAndPassword,
@@ -12,18 +12,26 @@ export const useAuth = () => React.useContext(AuthContext);
 
 export function AuthProvider({ children }: HasChildrenProps) {
   const [currentUserId, setCurrentUserId] = React.useState("");
+  const [error, setError] = React.useState<AuthError>({
+    code: null,
+    message: "",
+  });
 
   function signUp(email: string, password: string) {
     createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log({ user });
+      .then((_userCredential) => {
+        // const user = _userCredential.user;
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log({ errorCode, errorMessage });
+        setError({
+          code: error.code,
+          message: error.message,
+        });
       });
+  }
+
+  function resetUser() {
+    setCurrentUserId("");
   }
 
   React.useEffect(() => {
@@ -40,7 +48,9 @@ export function AuthProvider({ children }: HasChildrenProps) {
 
   const value = {
     currentUserId,
+    resetUser,
     signUp,
+    error,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

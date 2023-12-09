@@ -18,7 +18,7 @@ export function RegistrationPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [email, setEmail] = useState("");
-  const { signUp } = useAuth();
+  const { error: authError, signUp, currentUserId, resetUser } = useAuth();
   const [error, setError] = useState("");
 
   const navigation =
@@ -42,17 +42,25 @@ export function RegistrationPage() {
     }
   }, [password, confirmPassword]);
 
-  async function handleSubmit() {
-    try {
-      console.log({ email, password });
-      signUp(email, password);
-    } catch {
+  React.useEffect(() => {
+    if (authError.code) {
       setError("Failed to create an account");
     }
+  }, [authError]);
+
+  React.useEffect(() => {
+    console.log({ currentUserId });
+    if (currentUserId.length > 0) {
+      navigation.navigate(HOME_PATH);
+    }
+  }, [currentUserId]);
+
+  async function handleSubmit() {
+    signUp(email, password);
   }
 
-  // Check if either email or password is empty
-  const isLoginButtonDisabled = !email || !password;
+  // Check if either email or password is empty or there is error
+  const isLoginButtonDisabled = !email || !password || error.length > 0;
 
   return (
     <SafeAreaView style={styles.container}>

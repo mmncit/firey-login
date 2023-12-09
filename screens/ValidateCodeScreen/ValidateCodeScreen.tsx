@@ -46,8 +46,6 @@ export function ValidateCodeScreen() {
     }
   };
 
-  console.log({ code });
-
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Please check your email</Text>

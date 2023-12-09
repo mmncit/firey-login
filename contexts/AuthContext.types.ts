@@ -4,7 +4,9 @@ export interface HasChildrenProps {
 
 export interface AuthData {
   signUp: (email: string, password: string) => void;
+  resetUser: () => void;
   currentUserId: string;
+  error: AuthError;
 }
 
 export interface AuthError {

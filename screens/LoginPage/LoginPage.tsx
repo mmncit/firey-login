@@ -8,10 +8,11 @@ import { FORGOT_PASSWORD_PATH, REGISTRATION_PATH } from "../../constants";
 import { RootStackParamList } from "../../App.types";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { PasswordField } from "../../components";
+import { useAuth } from "../../contexts/AuthContext";
 
 export function LoginPage() {
   const { appName } = Constants.expoConfig.extra;
-
+  const { resetUser } = useAuth();
   console.log(`welcome to ${appName}`);
 
   const [email, setEmail] = useState("");
@@ -50,7 +51,10 @@ export function LoginPage() {
         Don’t have an account?{" "}
         <Text
           style={styles.Link}
-          onPress={() => navigation.navigate(REGISTRATION_PATH)}
+          onPress={() => {
+            resetUser();
+            navigation.navigate(REGISTRATION_PATH);
+          }}
         >
           Sign up
         </Text>
