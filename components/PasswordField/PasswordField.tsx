@@ -18,6 +18,7 @@ export function PasswordField({
   return (
     <View style={styles.input}>
       <TextInput
+        contextMenuHidden={true}
         onChangeText={onChangePassword}
         value={password}
         style={styles.password}

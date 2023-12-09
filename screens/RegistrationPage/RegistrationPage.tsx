@@ -31,13 +31,13 @@ export function RegistrationPage() {
   }, []);
 
   React.useEffect(() => {
-    if (password !== confirmPassword) {
+    if (password !== confirmPassword && confirmPassword.length > 0) {
       setError("Passwords did not match");
     } else if (password === confirmPassword) {
       setError("");
     }
 
-    if (password.length < 6) {
+    if (password.length < 6 && password.length > 0) {
       setError("Password should be at least 6 characters");
     }
   }, [password, confirmPassword]);
@@ -60,7 +60,8 @@ export function RegistrationPage() {
   }
 
   // Check if either email or password is empty or there is error
-  const isLoginButtonDisabled = !email || !password || error.length > 0;
+  const isLoginButtonDisabled =
+    !email || !password || !confirmPassword || error.length > 0;
 
   return (
     <SafeAreaView style={styles.container}>
